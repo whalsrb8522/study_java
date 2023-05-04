@@ -1,0 +1,3 @@
+orange : 오렌지
+banana : 바나나
+apple : 사과
