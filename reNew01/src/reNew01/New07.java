@@ -38,7 +38,6 @@ class Product {
 	}
 
 	void manager(char menu) {
-		
 		String name = null;
 		int price = 0;
 
