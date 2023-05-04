@@ -13,6 +13,7 @@ public class New02 {
 		System.out.printf("1~10 출력 : ");
 		for (int i = 1; i <= 10 ; i++) {
 			System.out.printf("%d ", i);
+			
 			sum += i;
 			if(i % 2 == 0) {
 				evenSum += i;
