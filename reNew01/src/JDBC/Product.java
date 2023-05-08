@@ -1,6 +1,6 @@
 package JDBC;
 
-public class ProductVO {
+public class Product {
 	// VO (value Object)
 	// pno, pname, price, regdate, madeby
 	private int pno; // DB상에서 자동 증가
@@ -10,25 +10,25 @@ public class ProductVO {
 	private String madeby;
 
 	// 기본 생성자
-	public ProductVO() {
+	public Product() {
 	}
 
 	// 상품 등록
-	public ProductVO(String pname, int price, String madeby) {
+	public Product(String pname, int price, String madeby) {
 		this.pname = pname;
 		this.price = price;
 		this.madeby = madeby;
 	}
 
 	// 상품 리스트 (전체 리스트)
-	public ProductVO(int pno, String pname, String regdate) {
+	public Product(int pno, String pname, String regdate) {
 		this.pno = pno;
 		this.pname = pname;
 		this.regdate = regdate;
 	}
 
 	// 상품 상세 (세부정보 => 전부)
-	public ProductVO(int pno, String pname, int price, String regdate, String madeby) {
+	public Product(int pno, String pname, int price, String regdate, String madeby) {
 		this.pno = pno;
 		this.pname = pname;
 		this.price = price;
@@ -37,7 +37,7 @@ public class ProductVO {
 	}
 
 	// 상품 수정 (pno, pnmae, price, madeby)
-	public ProductVO(int pno, String pname, int price, String madeby) {
+	public Product(int pno, String pname, int price, String madeby) {
 		this(pname, price, madeby);
 		this.pno = pno;
 	}
