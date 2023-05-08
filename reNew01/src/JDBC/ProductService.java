@@ -38,4 +38,9 @@ public class ProductService implements Service {
 	public int edit(Product product, String old_pname) {
 		return dao.edit(product, old_pname);
 	}
+
+	@Override
+	public int delete(int pno) {
+		return dao.delete(pno);
+	}
 }

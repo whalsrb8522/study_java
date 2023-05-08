@@ -8,4 +8,5 @@ public interface Service {
 	Product detail(String pname);
 	boolean edit_check(String pname);
 	int edit(Product product, String old_pname);
+	int delete(int pno);
 }

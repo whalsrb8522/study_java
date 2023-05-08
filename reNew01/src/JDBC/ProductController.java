@@ -46,7 +46,7 @@ public class ProductController {
 				break;
 			case '5':
 				System.out.printf("--- 삭제 메뉴 ---\n");
-				// 실행 메소드 추가
+				delete();
 				break;
 			default:
 				System.out.printf("종료되었습니다.\n");
@@ -54,6 +54,14 @@ public class ProductController {
 				break;
 			}
 		}
+	}
+	
+	private void delete() {
+		System.out.println("상품 번호 : ");
+		int pno = scan.nextInt();
+
+		int isOk = svc.delete(pno);
+		System.out.printf("상품 삭제 : %s\n", isOk > 0 ? "성공" : "실패");
 	}
 	
 	// 수정 메뉴

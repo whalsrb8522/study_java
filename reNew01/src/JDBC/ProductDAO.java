@@ -32,7 +32,7 @@ public class ProductDAO implements DAO {
 			pst.setString(1, product.getPname());
 			pst.setInt(2, product.getPrice());
 			pst.setString(3, product.getMadeby());
-			// excuteUpdate() : 값이 업데이트 되어야 하는 상황 (insert, update, delete)
+			// excuteUpdate() : 값이 업데이트 되어야 하는 update, delete)
 			// excuteQuery() : select 경우 => DB의 값이 변하지 않는 상황
 			return pst.executeUpdate();
 		} catch (SQLException e) {
@@ -122,6 +122,19 @@ public class ProductDAO implements DAO {
 		} catch (SQLException e) {
 			System.out.println("insert eror");
 			e.printStackTrace();
+		}
+		return 0;
+	}
+
+	@Override
+	public int delete(int pno) {
+		query = "delete from product where pno = ?";
+		try {
+			pst = conn.prepareStatement(query);
+			pst.setInt(1, pno);
+			return pst.executeUpdate();			
+		} catch (Exception e) {
+			// TODO: handle exception
 		}
 		return 0;
 	}
