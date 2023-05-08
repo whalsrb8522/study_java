@@ -24,15 +24,15 @@ public class New07 {
 			menu = sc.next().charAt(0);
 			product.manager(menu);
 		}
-		
+
 		sc.close();
 	}
 }
 
 class Product {
 	HashMap<String, Integer> productList = new HashMap<String, Integer>();
-	Scanner sc; 
-	
+	Scanner sc;
+
 	Product(Scanner sc) {
 		this.sc = sc;
 	}
@@ -48,7 +48,7 @@ class Product {
 			name = sc.next();
 			System.out.printf("상품 가격 : ");
 			price = sc.nextInt();
-			
+
 			productList.put(name, price);
 			break;
 		case '2':
@@ -56,7 +56,7 @@ class Product {
 			for (String tmp : productList.keySet()) {
 				String key = tmp;
 				Integer val = productList.get(key);
-				
+
 				System.out.printf("▷ %s : %d원\n", key, val);
 			}
 			break;
