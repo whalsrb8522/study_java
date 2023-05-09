@@ -5,6 +5,7 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 
 public class DatabaseConnector {
+	// 싱글톤 패턴으로 작성
 	private static DatabaseConnector dbc = new DatabaseConnector();
 	private Connection conn = null;
 	private String jdbcDriver = "com.mysql.cj.jdbc.Driver";

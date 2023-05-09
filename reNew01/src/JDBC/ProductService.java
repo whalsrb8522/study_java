@@ -13,19 +13,16 @@ public class ProductService implements Service {
 	@Override
 	public int register(Product product) {
 		// 실제 DAO에 요청 처리 로직
-		System.out.println("register service 진입");
 		return dao.insert(product);
 	}
 
 	@Override
 	public List<Product> list() {
-		System.out.println("list service 진입");
 		return dao.selectList();
 	}
 
 	@Override
 	public Product detail(String pname) {
-		System.out.println("detail service 진입");
 		return dao.selectDetail(pname);
 	}
 

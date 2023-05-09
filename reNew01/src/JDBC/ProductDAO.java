@@ -51,11 +51,7 @@ public class ProductDAO implements DAO {
 			pst = conn.prepareStatement(query);
 			ResultSet rs = pst.executeQuery();
 			while (rs.next()) {
-				list.add(new Product(
-						rs.getInt("pno"), 
-						rs.getString("pname"), 
-						rs.getString("regdate")
-				));
+				list.add(new Product(rs.getInt("pno"), rs.getString("pname"), rs.getString("regdate")));
 			}
 			return list;
 		} catch (SQLException e) {
@@ -68,23 +64,18 @@ public class ProductDAO implements DAO {
 	@Override
 	public Product selectDetail(String pname) {
 		Product detail = null;
-		
+
 		query = "select * from product where pname=?";
 		try {
 			pst = conn.prepareStatement(query);
 			pst.setString(1, pname);
 			ResultSet rs = pst.executeQuery();
-			if(rs.next()) {
-				detail = new Product(
-					rs.getInt("pno"), 
-					rs.getString("pname"), 
-					rs.getInt("price"),
-					rs.getString("regdate"),
-					rs.getString("madeby")
-				);
+			if (rs.next()) {
+				detail = new Product(rs.getInt("pno"), rs.getString("pname"), rs.getInt("price"),
+						rs.getString("regdate"), rs.getString("madeby"));
 			}
 			return detail;
-		}catch (SQLException e) {
+		} catch (SQLException e) {
 			e.printStackTrace();
 		}
 		return null;
@@ -100,7 +91,7 @@ public class ProductDAO implements DAO {
 			if (rs.next()) {
 				return true;
 			}
-		}catch (Exception e) {
+		} catch (Exception e) {
 			// TODO: handle exception
 		}
 		return false;
@@ -108,7 +99,7 @@ public class ProductDAO implements DAO {
 
 	@Override
 	public int edit(Product product, String old_pname) {
-		query = "update product set pname=?, price=?, madeby=? where pname=?";
+		query = "update product set pname=?, price=?, regdate=now(), madeby=? where pname=?";
 		try {
 			pst = conn.prepareStatement(query);
 			// pst.set자료형(순번, 값)
@@ -132,7 +123,7 @@ public class ProductDAO implements DAO {
 		try {
 			pst = conn.prepareStatement(query);
 			pst.setInt(1, pno);
-			return pst.executeUpdate();			
+			return pst.executeUpdate();
 		} catch (Exception e) {
 			// TODO: handle exception
 		}

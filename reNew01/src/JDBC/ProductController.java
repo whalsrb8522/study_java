@@ -49,6 +49,7 @@ public class ProductController {
 				delete();
 				break;
 			default:
+				this.scan.close();
 				System.out.printf("종료되었습니다.\n");
 				flag = false;
 				break;
